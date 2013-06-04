@@ -515,39 +515,39 @@ if (isset($_REQUEST['save'])) {
 		$email = $userlib->get_user_email($msg_to);
 		$mail = new TikiMail($msg_to);
 		$mail->setSubject($msg_title);
-		$mail_data = tra("You received a new task") . "\n\n" . $info['title'] . "\n" . tra("from") . " :$user\n";
-		$mail_data.= tra("The priority is") . ": ";
+		$mail_data = tra("You have been assigned a new task in the BTS Wiki.") . "\n\n" . $info['title'] . "\n" . tra("From") . ": " . "$user\n";
+		$mail_data.= tra("Priority") . ": ";
 		switch ($info['priority']) {
 			case 1:
-				$mail_data.= tra("very low");
+				$mail_data.= tra("Lowest");
     			break;
 
 			case 2:
-				$mail_data.= tra("low");
+				$mail_data.= tra("Low");
     			break;
 
 			case 3:
-				$mail_data.= tra("normal");
+				$mail_data.= tra("Normal");
     			break;
 
 			case 4:
-				$mail_data.= tra("high");
+				$mail_data.= tra("High");
     			break;
 
 			case 5:
-				$mail_data.= tra("very high");
+				$mail_data.= tra("Highest");
     			break;
 		}
-		$mail_data.= ".\n\n";
+		$mail_data.= "\n\n";
 		if ($info['start'] !== NULL) {
-			$mail_data.= tra("You've to start your work at least on") . ": " . $tikilib->date_format($prefs['short_date_format'] . ' ' . $prefs['short_time_format'], $info['end']) . "\n";
+			$mail_data.= tra("You should begin your work by") . ": " . $tikilib->date_format($prefs['short_date_format'] . ' ' . $prefs['short_time_format'], $info['end']) . "\n";
 		}
 		if ($info['end'] !== NULL) {
-			$mail_data.= tra("You've to finish your work on") . ": " . $tikilib->date_format($prefs['short_date_format'] . ' ' . $prefs['short_time_format'], $info['end']) . "\n";
+			$mail_data.= tra("You should complete your work by") . ": " . $tikilib->date_format($prefs['short_date_format'] . ' ' . $prefs['short_time_format'], $info['end']) . "\n";
 		}
 		$mail_data.= "\n" . tra("Login and click the link below") . "\n";
-		$mail_data.= "http://" . $_REQUEST['HTTP_HOST'] . $_REQUEST['REQUEST_URI'] . "?tiki_view_mode=view&taskId=" . $taskId . "\n\n";
-		$mail_data.= tra("Please read the task and work on it!");
+		$mail_data.= "https://btswiki.rose.portland.local/tiki-user_tasks.php?tiki_view_mode=view&taskId=" . $taskId . "\n\n";
+		$mail_data.= tra("Please check the task assignment and work on it!");
 		$mail->setText($mail_data);
 		$mail->send(array($email));
 	}
