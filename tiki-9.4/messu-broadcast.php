@@ -83,7 +83,7 @@ if (isset($_REQUEST['send']) || isset($_REQUEST['preview'])) {
 		}
 		$message .= implode(',', $users_formatted) . "<br />";
 	} else {
-		$message .= tra('ERROR: No valid users to send the message');
+		$message .= tra('ERROR: No valid recipients found');
 		$smarty->assign('message', $message);
 		$smarty->display("tiki.tpl");
 		die;
