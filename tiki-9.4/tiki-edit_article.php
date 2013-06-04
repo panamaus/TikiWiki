@@ -107,7 +107,7 @@ $authorName = $tikilib->get_user_preference($user, 'realName', $user);
 $smarty->assign('authorName', $authorName);
 $smarty->assign('topicId', '');
 $smarty->assign('useImage', 'n');
-$smarty->assign('isfloat', 'n');
+$smarty->assign('isfloat', 'y');
 $hasImage = 'n';
 $smarty->assign('hasImage', 'n');
 $smarty->assign('image_name', '');
@@ -125,7 +125,7 @@ $smarty->assign('rating', 7);
 $smarty->assign('edit_data', 'n');
 $smarty->assign('emails', '');
 $smarty->assign('userEmail', $userlib->get_user_email($user));
-$smarty->assign('ispublished', '');
+$smarty->assign('ispublished', 'y');
 
 // If the articleId is passed then get the article data
 // GGG - You have to check for the actual value of the articleId because it
