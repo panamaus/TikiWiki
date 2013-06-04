@@ -13,7 +13,7 @@ $access->check_feature('feature_messages');
 $access->check_permission('tiki_p_messages');
 if ($prefs['allowmsg_is_optional'] == 'y') {
 	if ($tikilib->get_user_preference($user, 'allowMsgs', 'y') != 'y') {
-		$smarty->assign('msg', tra("You have to be able to receive messages in order to send them. Goto your user preferences and enable 'Allow messages from other users'"));
+		$smarty->assign('msg', tra("You have to be able to receive messages in order to send them. Go to your user preferences and enable 'Allow messages from other users'"));
 		$smarty->display("error.tpl");
 		die;
 	}
@@ -66,9 +66,9 @@ if (isset($_REQUEST['send'])) {
 		die;
 	}
 	// Parse the to, cc and bcc fields into an array
-	$arr_to = preg_split('/\s*(?<!\\\)[;,]\s*/', $_REQUEST['to']);
-	$arr_cc = preg_split('/\s*(?<!\\\)[;,]\s*/', $_REQUEST['cc']);
-	$arr_bcc = preg_split('/\s*(?<!\\\)[;,]\s*/', $_REQUEST['bcc']);
+	$arr_to = preg_split('/\s*(?<!\\\)[;]\s*/', $_REQUEST['to']);
+	$arr_cc = preg_split('/\s*(?<!\\\)[;]\s*/', $_REQUEST['cc']);
+	$arr_bcc = preg_split('/\s*(?<!\\\)[;]\s*/', $_REQUEST['bcc']);
 	if ($prefs['user_selector_realnames_messu'] == 'y') {
 		$groups = '';
 		$arr_to = $userlib->find_best_user($arr_to, $groups, 'login');
@@ -87,10 +87,10 @@ if (isset($_REQUEST['send'])) {
 					if (($messulib->count_messages($a_user) < $prefs['messu_mailbox_size']) || ($prefs['messu_mailbox_size'] == 0)) {
 						$users[] = $a_user;
 					} else {
-						$message.= sprintf(tra("User %s can not receive messages, mailbox is full"), htmlspecialchars($a_user)) . "<br />";
+						$message.= sprintf(tra("User %s cannot receive messages, mailbox is full"), htmlspecialchars($a_user)) . "<br />";
 					}
 				} else {
-					$message.= sprintf(tra("User %s can not receive messages"), htmlspecialchars($a_user)) . "<br />";
+					$message.= sprintf(tra("User %s cannot receive messages"), htmlspecialchars($a_user)) . "<br />";
 				}
 			} else {
 				$message.= sprintf(tra("Invalid user: %s"), htmlspecialchars($a_user)) . "<br />";
@@ -107,10 +107,10 @@ if (isset($_REQUEST['send'])) {
 					if (($messulib->count_messages($a_user) < $prefs['messu_mailbox_size']) || ($prefs['messu_mailbox_size'] == 0)) {
 						$users[] = $a_user;
 					} else {
-						$message.= sprintf(tra("User %s can not receive messages, mailbox is full"), htmlspecialchars($a_user)) . "<br />";
+						$message.= sprintf(tra("User %s cannot receive messages, mailbox is full"), htmlspecialchars($a_user)) . "<br />";
 					}
 				} else {
-					$message.= sprintf(tra("User %s can not receive messages"), htmlspecialchars($a_user)) . "<br />";
+					$message.= sprintf(tra("User %s cannot receive messages"), htmlspecialchars($a_user)) . "<br />";
 				}
 			} else {
 				$message.= sprintf(tra("Invalid user: %s"), htmlspecialchars($a_user)) . "<br />";
@@ -127,10 +127,10 @@ if (isset($_REQUEST['send'])) {
 					if (($messulib->count_messages($a_user) < $prefs['messu_mailbox_size']) || ($prefs['messu_mailbox_size'] == 0)) {
 						$users[] = $a_user;
 					} else {
-						$message.= sprintf(tra("User %s can not receive messages, mailbox is full"), htmlspecialchars($a_user)) . "<br />";
+						$message.= sprintf(tra("User %s cannot receive messages, mailbox is full"), htmlspecialchars($a_user)) . "<br />";
 					}
 				} else {
-					$message.= sprintf(tra("User %s can not receive messages"), htmlspecialchars($a_user)) . "<br />";
+					$message.= sprintf(tra("User %s cannot receive messages"), htmlspecialchars($a_user)) . "<br />";
 				}
 			} else {
 				$message.= sprintf(tra("Invalid user: %s"), htmlspecialchars($a_user)) . "<br />";
@@ -145,7 +145,7 @@ if (isset($_REQUEST['send'])) {
 			$users_formatted[] = htmlspecialchars($rawuser);
 		$message.= tra("Message has been sent to: ") . implode(',', $users_formatted) . "<br />";
 	} else {
-		$message.= tra('ERROR: No valid users to send the message');
+		$message.= tra('ERROR: No valid message recipient(s)');
 		$smarty->assign('message', $message);
 		$smarty->display("tiki.tpl");
 		die;
