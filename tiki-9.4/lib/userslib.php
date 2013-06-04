@@ -21,7 +21,7 @@ define('PASSWORD_INCORRECT', -3);
 define('USER_NOT_FOUND', -5);
 define('ACCOUNT_DISABLED', -6);
 define('ACCOUNT_WAITING_USER', -9);
-define('USER_AMBIGOUS', -7);
+define('USER_AMBIGUOUS', -7);
 define('USER_NOT_VALIDATED', -8);
 define('USER_PREVIOUSLY_VALIDATED', -10);
 
@@ -1220,7 +1220,7 @@ class UsersLib extends TikiLib
 		if ($prefs['auth_ldap_debug']=='y') $logslib->add_log('ldap', 'Syncing group with ldap');
 		$userattributes=$this->ldap->get_user_attributes(true);
 
-		if ($prefs['syncGroupsWithDirectory'] == 'y' && $userattributes[$prefs['auth_ldap_group_corr_userattr']] != null) {
+		if ($prefs['syncGroupsWithDirectory'] == 'y' && $prefs['auth_ldap_group_corr_userattr'] != null) {
 			// sync external group information of user
 			$ldapgroups = array();
 
@@ -1255,7 +1255,7 @@ class UsersLib extends TikiLib
 						$ldap_group_options['bind_type'] = 'default';
 					} else {
 						// Explicit
-						$ldap_group_options['bind_type'] = 'explicit';
+						$ldap_group_options['bind_type'] = $prefs['auth_ldap_type'];
 						$ldap_group_options['binddn'] = $prefs['auth_ldap_group_adminuser'];
 						$ldap_group_options['bindpw'] = $prefs['auth_ldap_group_adminpass'];
 					}
@@ -1409,7 +1409,7 @@ class UsersLib extends TikiLib
 								break;
 
 				default:
-					return array(USER_AMBIGOUS, $user);
+					return array(USER_AMBIGUOUS, $user);
 			}
 		}
 
