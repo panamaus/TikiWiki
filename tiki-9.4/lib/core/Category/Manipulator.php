@@ -3,7 +3,7 @@
 // 
 // All Rights Reserved. See copyright.txt for details and a complete list of authors.
 // Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details.
-// $Id: Manipulator.php 39469 2012-01-12 21:13:48Z changi67 $
+// $Id: Manipulator.php 2013-05-14 21:13:48Z panamaus $
 
 class Category_Manipulator
 {
@@ -28,7 +28,7 @@ class Category_Manipulator
 		$this->objectId = $objectId;
 	}
 
-	function addRequiredSet(array $categories, $default, $filter=null, $type=null)
+	function addRequiredSet(array $categories, $default, $filter, $type)
 	{
 		$categories = array_unique($categories);
 		$this->constraints['required'][] = array(
