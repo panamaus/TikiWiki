@@ -13,7 +13,7 @@ function validator_distinct($input, $parameter = '', $message = '')
 	parse_str($parameter, $arr);
 	
 	if (count($arr) < 2 || !isset($arr['trackerId']) || !isset($arr['fieldId'])) {
-		return tra("Edit field: (Parameter needs to be 'trackerId=XX&fileId=YY' or be empty to use the current field).");
+		return tra("Edit field: (Parameter needs to be 'trackerId=XX&fieldId=YY' or be empty to use the current field).");
 	}
 	if (!isset($arr['itemId']) || $arr['itemId'] < 1) {
 		$arr['itemId'] = 0;
