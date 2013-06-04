@@ -3,7 +3,7 @@
 // 
 // All Rights Reserved. See copyright.txt for details and a complete list of authors.
 // Licensed under the GNU LESSER GENERAL PUBLIC LICENSE. See license.txt for details.
-// $Id: mimeextensions.php 41321 2012-05-04 09:33:53Z arildb $
+// $Id: mimeextensions.php 2013-01-28 15:07:40Z panamaus $
 
 $mimeextensions=Array(
 "application/andrew-inset" => "ez",
@@ -17,7 +17,9 @@ $mimeextensions=Array(
 "application/mathematica" => "nb",
 "application/msaccess" => "mdb",
 "application/msword" => "dot",
+"application/vnd.openxmlformats-officedocument.wordprocessingml.template" => "dotx",
 "application/msword" => "doc",
+"application/vnd.openxmlformats-officedocument.wordprocessingml.document" => "docx",
 "application/octet-stream" => "bin",
 "application/oda" => "oda",
 "application/ogg" => "ogg",
@@ -36,12 +38,13 @@ $mimeextensions=Array(
 "application/vnd.mif" => "mif",
 "application/vnd.ms-excel" => "xlb",
 "application/vnd.ms-excel" => "xls",
+"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" => "xlsx",
 "application/vnd.ms-pki.seccat" => "cat",
 "application/vnd.ms-pki.stl" => "stl",
 "application/vnd.ms-powerpoint" => "pot",
 "application/vnd.ms-powerpoint" => "pps",
 "application/vnd.ms-powerpoint" => "ppt",
-"application/vnd.openxmlformats-officedocument.wordprocessingml.template" => "dotx",
+"application/vnd.openxmlformats-officedocument.presentationml.presentation" => "pptx",
 "application/vnd.stardivision.calc" => "sdc",
 "application/vnd.stardivision.draw" => "sda",
 "application/vnd.stardivision.impress" => "sdd",
