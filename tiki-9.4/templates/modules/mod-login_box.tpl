@@ -149,6 +149,7 @@ function doChallengeResponse() {
 		{/if}
 		<div>
 			{if !isset($module_logo_instance)}{assign var=module_logo_instance value=' '}{/if}
+			<legend>{tr}<b>ROSE</b> account (Not ADM){/tr}</legend>
 			<label for="login-user_{$module_logo_instance}">{if $prefs.login_is_email eq 'y'}{tr}Email:{/tr}{else}{tr}Username:{/tr}{/if}</label>
 			{if !isset($loginuser) or $loginuser eq ''}
 				<input type="text" name="user" id="login-user_{$module_logo_instance}" size="{if empty($module_params.input_size)}15{else}{$module_params.input_size}{/if}" {if !empty($error_login)} value="{$error_user|escape}"{elseif !empty($adminuser)} value="{$adminuser|escape}"{/if}/>
@@ -201,7 +202,7 @@ function doChallengeResponse() {
 						1 {tr}year{/tr})
 					{/if}
 					</label>
-					<input type="checkbox" name="rme" id="login-remember-module_{$module_logo_instance}" value="on" />
+					<input type="checkbox" checked="checked" name="rme" id="login-remember-module_{$module_logo_instance}" value="on" />
 					{capture assign="close_tags"}</div>{$close_tags}{/capture}
 			{/if}
 		{/if}

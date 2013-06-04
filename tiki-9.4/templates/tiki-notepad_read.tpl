@@ -1,4 +1,4 @@
-{title help="notepad"}{tr}Reading note:{/tr}&nbsp;{$info.name}{/title}
+{title help="notepad"}{tr}Reading note:{/tr} {$info.name}{/title}
 
 {include file='tiki-mytiki_bar.tpl'}
 

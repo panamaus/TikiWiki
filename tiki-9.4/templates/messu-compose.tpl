@@ -34,7 +34,7 @@
 			<tr>
 				<td>
 					<label for="mess-composeto">{tr}To:{/tr}</label>
-					{help url="Inter-User+Messages#Composing_messages" desc='{tr}To: Multiple addresses can be separated with semicolons (";") or commas (","){/tr}'}
+					{help url="Inter-User+Messages#Composing_messages" desc='{tr}To: Multiple addresses can be separated with semicolons (";"){/tr}'}
 				</td>
 				<td>
 					<input type="text" name="to" id="mess-composeto" value="{$to|escape}" class="username" size="80" />
@@ -45,7 +45,7 @@
 			<tr>
 				<td>
 					<label for="mess-composecc">{tr}CC:{/tr}</label>
-					{help url="Inter-User+Messages#Composing_messages" desc='{tr}CC: Multiple addresses can be separated with semicolons (";") or commas (","){/tr}'}
+					{help url="Inter-User+Messages#Composing_messages" desc='{tr}CC: Multiple addresses can be separated with semicolons (";"){/tr}'}
 				</td>
 				<td>
 					<input type="text" name="cc" id="mess-composecc" value="{$cc|escape}" class="username" size="80" />
@@ -54,7 +54,7 @@
 			<tr>
 				<td>
 					<label for="mess-composebcc">{tr}BCC:{/tr}</label>
-					{help url="Inter-User+Messages#Composing_messages" desc='{tr}BCC: Multiple addresses can be separated with semicolons (";") or commas (","){/tr}'}
+					{help url="Inter-User+Messages#Composing_messages" desc='{tr}BCC: Multiple addresses can be separated with semicolons (";"){/tr}'}
 				</td>
 				<td>
 					<input type="text" name="bcc" id="mess-composebcc" value="{$bcc|escape}" class="username" size="80" />
@@ -70,7 +70,7 @@
 						<option value="2" {if $priority eq 2}selected="selected"{/if}>2: {tr}Low{/tr}</option>
 						<option value="3" {if $priority eq 3}selected="selected"{/if}>3: {tr}Normal{/tr}</option>
 						<option value="4" {if $priority eq 4}selected="selected"{/if}>4: {tr}High{/tr}</option>
-						<option value="5" {if $priority eq 5}selected="selected"{/if}>5: {tr}Very High{/tr}</option>
+						<option value="5" {if $priority eq 5}selected="selected"{/if}>5: {tr}Highest{/tr}</option>
 					</select>
 				</td>
 			</tr>
@@ -92,7 +92,7 @@
 				<td>&nbsp;</td>
 				<td>
 					<input type="submit" name="send" value="{tr}Send{/tr}" />
-					<input type="checkbox" name="replytome" id="replytome" />
+					<input type="checkbox" name="replytome" id="replytome" checked="checked" />
 					<label for="replytome">
 						{tr}Reply-to my email{/tr}
 						{help url="User+Information" desc="{tr}Reply-to my email:{/tr}{tr}The user will be able to reply to you directly via email.{/tr}"}

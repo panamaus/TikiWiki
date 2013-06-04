@@ -10,9 +10,10 @@
 
 {remarksbox title="{tr}Move objects between categories{/tr}"}
 	<ol>
-		<li>{tr}Click on the category name you want to list. The list of objects in that category will become visible.{/tr}</li>
+		<li>{tr}Click on the category name you want to list. The list of objects in that category will become visible. Note: If this doesn't seem to work, rebuild the <a href="tiki-admin.php?page=search">search index</a>.{/tr}</li>
 		<li>{tr}Select the objects you want to affect. Controls will appear in the category browser.{/tr}</li>
 		<li>{tr}Use the plus and minus signs to add or remove the categories on selected objects.{/tr}</li>
+		<li>{tr}File Gallery files and Tracker items have their categories set automatically by their parent object. If you want to remove a category from a file or tracker item, you must first unassign that category from the gallery or tracker of which it is a member.{/tr}</li>
 	</ol>
 {/remarksbox}
 

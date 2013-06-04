@@ -56,7 +56,7 @@
 				{if $useImage eq 'y' and $hasImage eq 'y'}
 					{* display article image *}{$style=''}
 					<img 
-						 {if $big_image}class="cboxElement"{elseif $isfloat eq 'y'}{$style="margin-right:4px;float:left;"}{else}class="articleimage"{/if}
+						 {if $big_image}class="cboxElement"{elseif $isfloat eq 'y'}{$style="float:right;margin-right:5px;"}{else}class="articleimage"{/if}
 						 alt="{$smarty.capture.imgTitle}"
 						 src="article_image.php?image_type={if isset($preview) and $imageIsChanged eq 'y'}preview&amp;id={$previewId}{elseif isset($preview) and $subId}submission&amp;id={$subId}{else}article&amp;id={$articleId}{/if}"
 						 {if $image_x > 0}{$style=$style|cat:"max-width:"|cat:$image_x|cat:"px;"}{/if}
@@ -64,7 +64,7 @@
 				{elseif $topicId}
 						{if $topics[$topicId].image_size > 0}
 							<img 
-								 {if $big_image}class="cboxElement"{elseif $isfloat eq 'y'}style="margin-right:4px;float:left;"{else}class="articleimage"{/if}
+								 {if $big_image}class="cboxElement"{elseif $isfloat eq 'y'}style="float:right;margin-right:5px;"{else}class="articleimage"{/if}
 								 alt="{tr}{$topicName}{/tr}"
 								 src="article_image.php?image_type=topic&amp;id={$topicId}" />
 					{else}

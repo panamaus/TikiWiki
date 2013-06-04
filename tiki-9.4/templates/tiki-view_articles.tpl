@@ -7,7 +7,7 @@
 		{/title}
 	{/if}
 	<div class="clearfix" style="clear: both;">
-		<div style="float: right; padding-left:10px; white-space: nowrap">
+		<div style="float:right; padding-left:10px; white-space:nowrap">
 		{if $user and $prefs.feature_user_watches eq 'y'}
 			{if $user_watching_articles eq 'n'}
 					{self_link watch_event='article_*' watch_object='*' watch_action='add' _icon='eye' _alt="{tr}Monitor Articles{/tr}" _title="{tr}Monitor Articles{/tr}"}{/self_link}
@@ -70,7 +70,7 @@
 				</div>
 			{/if}
 			<div class="articleheading">
-				<table  cellpadding="0" cellspacing="0">
+				<table cellpadding="0" cellspacing="0" width="100%">
 					<tr>
 						<td valign="top">
 							{if $listpages[ix].show_image eq 'y'}
@@ -79,7 +79,7 @@
 										<a href="{$smarty.capture.href}"
 												title="{if $listpages[ix].show_image_caption and $listpages[ix].image_caption}{$listpages[ix].image_caption|escape}{elseif $listpages[ix].topicName}{tr}{$listpages[ix].topicName}{/tr}{else}{tr}Read More{/tr}{/if}">
 											{$style=''}
-											<img {if $listpages[ix].isfloat eq 'y'}{$style="margin-right:4px;float:left;"}{else}class="articleimage"{/if} 
+											<img {if $listpages[ix].isfloat eq 'y'}{$style="float:right;margin-right:5px;"}{else}class="articleimage"{/if} 
 													alt="{if $listpages[ix].show_image_caption and $listpages[ix].image_caption}{$listpages[ix].image_caption|escape}{elseif $listpages[ix].topicName}{tr}{$listpages[ix].topicName}{/tr}{/if}"
 													{strip}src="article_image.php?image_type=article&amp;id={$listpages[ix].articleId}
 													{if $listpages[ix].list_image_x > 0 and ($largefirstimage neq 'y' or not $smarty.section.ix.first)}
@@ -103,7 +103,7 @@
 									{if isset($topics[$listpages[ix].topicId].image_size) and $topics[$listpages[ix].topicId].image_size > 0}
 										<a href="{$smarty.capture.href}"
 												title="{if $listpages[ix].show_image_caption and $listpages[ix].image_caption}{$listpages[ix].image_caption|escape}{else}{tr}{$listpages[ix].topicName}{/tr}{/if}">
-											<img {if $listpages[ix].isfloat eq 'y'}style="margin-right:4px;float:left;"{else}class="articleimage"{/if} 
+											<img {if $listpages[ix].isfloat eq 'y'}style="float:right;margin-right:5px;"{else}class="articleimage"{/if} 
 													alt="{if $listpages[ix].show_image_caption and $listpages[ix].image_caption}{$listpages[ix].image_caption|escape}{else}{tr}{$listpages[ix].topicName}{/tr}{/if}"
 													src="article_image.php?image_type=topic&amp;id={$listpages[ix].topicId}" />
 										</a>
@@ -112,9 +112,6 @@
 							{/if}
 							{if ($listpages[ix].show_avatar eq 'y')}
 								{$listpages[ix].author|avatarize}
-							{/if}
-							{if $listpages[ix].isfloat eq 'n'}
-								</td><td  valign="top">
 							{/if}
 							<div class="articleheadingtext">{$listpages[ix].parsed_heading}</div>
 							{if isset($fullbody) and $fullbody eq "y"}
