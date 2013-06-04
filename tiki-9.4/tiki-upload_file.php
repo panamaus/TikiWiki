@@ -19,9 +19,9 @@ if ( isset($_POST['PHPSESSID']) && $_POST['PHPSESSID'] != '' ) {
 }
 
 require_once ('tiki-setup.php');
-if ($prefs['feature_categories'] == 'y') {
-	include_once ('lib/categories/categlib.php');
-}
+// if ($prefs['feature_categories'] == 'y') {
+//	include_once ('lib/categories/categlib.php');
+// }
 
 $access->check_feature('feature_file_galleries');
 
@@ -204,7 +204,7 @@ if ( $prefs['fgal_limit_hits_per_file'] == 'y' ) {
 
 $cat_type = 'file';
 $cat_objid = (int) $fileId;
-include_once ('categorize_list.php');
+// include_once ('categorize_list.php');
 
 include_once ('tiki-section_options.php');
 
